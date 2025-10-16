@@ -1,19 +1,40 @@
-// src/app/page.tsx
-import ColoredTitle from '../components/ColoredTitle';
-import CounterButton from '../components/CounterButton';
+import ColoredTitle from "@/components/ColoredTitle";
+import CounterButton from "@/components/CounterButton";
+import Button from "@/components/Button";
 
 export default function Page() {
   return (
-    <main className="min-h-screen bg-white">
-      <section className="mx-auto max-w-2xl px-6 py-12">
-        <ColoredTitle text="TypeScript練習中!" color="red" />
-        <p className="mt-2 text-sm text-gray-600">文字・色・レイアウトを安全に変更します。</p>
+    <div className="space-y-8">
+      <section className="space-y-2">
+        <ColoredTitle color="brand">Tailwind v4 テーマ（brand）テスト</ColoredTitle>
+        <p className="text-gray-600">
+          この見出しが <code>text-brand</code> の色ならOK。
+        </p>
+      </section>
 
-        <div className="mt-6">
-          {/* onCountChange を渡さない（省略OK） */}
-          <CounterButton />
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Button: variant</h2>
+        <div className="flex flex-wrap gap-3">
+          <Button>solid / md</Button>
+          <Button variant="outline">outline / md</Button>
+          <Button variant="ghost">ghost / md</Button>
+          <Button disabled>disabled</Button>
         </div>
       </section>
-    </main>
+
+      <section className="space-y-3">
+        <h2 className="text-xl font-semibold">Button: size</h2>
+        <div className="flex flex-wrap items-end gap-3">
+          <Button size="sm">sm</Button>
+          <Button size="md">md</Button>
+          <Button size="lg">lg</Button>
+        </div>
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-xl font-semibold">動作サンプル</h2>
+        <CounterButton />
+      </section>
+    </div>
   );
 }

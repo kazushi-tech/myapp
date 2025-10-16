@@ -1,14 +1,21 @@
-// src/components/ColoredTitle.tsx
-type Color = 'blue' | 'red' | 'green';
+import * as React from "react";
 
-const colorClass: Record<Color, string> = {
-  blue: 'text-blue-600',
-  red: 'text-red-600',
-  green: 'text-green-600',
+type ColoredTitleProps = {
+  children: React.ReactNode;
+  /** "brand" を渡すと text-brand に */
+  color?: "brand" | "default";
+  className?: string;
 };
 
-type Props = { text: string; color?: Color };
-
-export default function ColoredTitle({ text, color = 'blue' }: Props) {
-  return <h1 className={`text-3xl font-bold ${colorClass[color]}`}>{text}</h1>;
+export default function ColoredTitle({
+  children,
+  color = "default",
+  className = "",
+}: ColoredTitleProps) {
+  const colorClass = color === "brand" ? "text-brand" : "";
+  return (
+    <h1 className={`text-3xl font-bold tracking-tight ${colorClass} ${className}`}>
+      {children}
+    </h1>
+  );
 }

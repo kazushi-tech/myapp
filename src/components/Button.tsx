@@ -16,25 +16,25 @@ const base =
 const variants: Record<Variant, string> = {
   solid: "bg-brand text-white hover:bg-brand/90",
   outline: "border border-brand text-brand hover:bg-brand/10",
-  ghost: "text-brand hover:bg-brand/10",
+  ghost: "text-brand hover:bg-brand/10"
 };
 
 const sizes: Record<Size, string> = {
   sm: "h-9 px-3 text-sm",
   md: "h-10 px-4 text-base",
-  lg: "h-12 px-5 text-lg",
+  lg: "h-12 px-5 text-lg"
 };
 
 export default function Button({
   variant = "solid",
   size = "md",
   className = "",
+  children,
   ...props
 }: ButtonProps) {
   return (
-    <button
-      className={[base, variants[variant], sizes[size], className].join(" ")}
-      {...props}
-    />
+    <button className={[base, variants[variant], sizes[size], className].join(" ")} {...props}>
+      {children}
+    </button>
   );
 }
