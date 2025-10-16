@@ -1,19 +1,23 @@
-# myapp — Next.js学習用ミニアプリ
-学びの目的：Next.js + TypeScript + Tailwind で「作る→動かす→公開」を体験。
+# Week2 Practice (Next.js App Router)
 
 ## 目次
-- [はじめに](#はじめに)
-- [動かし方](#動かし方)
+- [概要](#概要)
 - [技術スタック](#技術スタック)
-- [公開URL](#公開url)
-- [進捗](#進捗)
-- [ライセンス](#ライセンス)
+- [ローカル実行](#ローカル実行)
+- [変更ポイント](#変更ポイント)
+- [デプロイ](#デプロイ)
 
-## はじめに
-Week1のゴール（ローカル起動→GitHub→Vercel公開）を最小構成で達成。
+## 概要
+**Next.js（App Router）+ TypeScript + Tailwind CSS** の最小構成。  
+**文字・色・レイアウト**を自分で変え、**型**で安全に保つ練習用。
 
-## 動かし方
+## 技術スタック
+- Next.js：画面の仕組み（家の間取り）
+- TypeScript：型のラベル（箱の仕分け）
+- Tailwind：見た目のクラス（色シール）
+
+## ローカル実行
 ```bash
 npm install
 npm run dev
-# http://localhost:3000
+# http://localhost:3000（または 3001）
