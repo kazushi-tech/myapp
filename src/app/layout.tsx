@@ -1,4 +1,6 @@
+// src/app/layout.tsx （全置き換え）
 import type { Metadata } from "next";
+import Link from "next/link"; // ← 追加
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,7 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="text-brand">myapp</span>
             </div>
             <nav className="text-sm text-gray-600">
-              <a href="/" className="hover:underline">Home</a>
+              {/* 内部リンクは Link を使う */}
+              <Link href="/" className="hover:underline">Home</Link>
             </nav>
           </div>
         </header>
