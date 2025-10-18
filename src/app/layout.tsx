@@ -1,36 +1,37 @@
-// src/app/layout.tsx （全置き換え）
+// layout.tsx
 import type { Metadata } from "next";
-import Link from "next/link"; // ← 追加
-import "./globals.css";
+import Script from "next/script";
+import ThemeToggle from "@/components/ThemeToggle"; // ← 追加
 
-export const metadata: Metadata = {
-  title: "My App",
-  description: "Next.js App Router + Tailwind v4 sample",
-};
+export const metadata: Metadata = { title: "myapp" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja" data-theme="dark">
-      <body className="min-h-dvh bg-surface text-text antialiased">
-        <header className="sticky top-0 z-10 border-b bg-white/80 backdrop-blur">
-          <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-            <div className="font-bold">
-              <span className="text-brand">myapp</span>
-            </div>
-            <nav className="text-sm text-gray-600">
-              {/* 内部リンクは Link を使う */}
-              <Link href="/" className="hover:underline">Home</Link>
-            </nav>
-          </div>
+    <html lang="ja">
+      <head>
+        {/* beforeInteractiveで最速適用 */}
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            try {
+              var t = localStorage.getItem('theme');
+              var e = document.documentElement;
+              if (t) e.dataset.theme = t;
+              else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                e.dataset.theme = 'dark';
+              } else {
+                e.dataset.theme = 'light';
+              }
+            } catch (e) {}
+          `}
+        </Script>
+      </head>
+      <body className="text-text">
+        <header className="mx-auto max-w-5xl p-4 flex items-center justify-between">
+          <div className="font-semibold">myapp</div>
+          <ThemeToggle />
         </header>
-
-        <main className="mx-auto max-w-5xl px-4 py-8">{children}</main>
-
-        <footer className="border-t">
-          <div className="mx-auto max-w-5xl px-4 py-6 text-center text-xs text-gray-500">
-            © {new Date().getFullYear()} myapp
-          </div>
-        </footer>
+        {children}
+        <footer className="mx-auto max-w-5xl p-4 text-sm opacity-70">© {new Date().getFullYear()} myapp</footer>
       </body>
     </html>
   );
