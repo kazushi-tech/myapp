@@ -1,40 +1,76 @@
-"use client";
-import * as React from "react";
+// src/components/Button.tsx
+import type { ButtonHTMLAttributes } from "react";
 
 type Variant = "solid" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  loading?: boolean;
   variant?: Variant;
   size?: Size;
 };
 
-const base =
-  "inline-flex items-center justify-center rounded-2xl font-medium transition " +
-  "disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring focus:ring-brand/40";
-
-const variants: Record<Variant, string> = {
-  solid: "bg-brand text-white hover:bg-brand/90",
-  outline: "border border-brand text-brand hover:bg-brand/10",
-  ghost: "text-brand hover:bg-brand/10"
-};
-
-const sizes: Record<Size, string> = {
-  sm: "h-9 px-3 text-sm",
-  md: "h-10 px-4 text-base",
-  lg: "h-12 px-5 text-lg"
-};
-
 export default function Button({
+  loading = false,
   variant = "solid",
   size = "md",
   className = "",
   children,
+  disabled,
   ...props
 }: ButtonProps) {
+  const isDisabled = loading || disabled;
+
+  const base =
+    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors " +
+    "disabled:opacity-60 disabled:cursor-not-allowed";
+
+  const sizeClass =
+    size === "sm"
+      ? "px-3 py-1.5 text-sm"
+      : size === "lg"
+      ? "px-5 py-3 text-base"
+      : "px-4 py-2 text-sm";
+
+  const variantClass =
+    variant === "outline"
+      ? "border border-brand-600 text-brand-600 hover:bg-brand-50"
+      : variant === "ghost"
+      ? "text-brand-600 hover:bg-brand-50"
+      : "bg-brand-600 text-white hover:bg-brand-700";
+
   return (
-    <button className={[base, variants[variant], sizes[size], className].join(" ")} {...props}>
-      {children}
+    <button
+      {...props}
+      disabled={isDisabled}
+      aria-busy={loading || undefined}
+      className={[base, sizeClass, variantClass, className].join(" ")}
+    >
+      {loading && (
+        <svg
+          className="h-4 w-4 animate-spin"
+          viewBox="0 0 24 24"
+          role="img"
+          aria-label="読み込み中"
+        >
+          <circle
+            cx="12"
+            cy="12"
+            r="10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="4"
+            opacity="0.25"
+          />
+          <path
+            d="M22 12a10 10 0 0 1-10 10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+        </svg>
+      )}
+      <span>{children}</span>
     </button>
   );
 }
