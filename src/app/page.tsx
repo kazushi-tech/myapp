@@ -4,11 +4,11 @@ import Button from "@/components/Button";
 
 export default function Page() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 p-4">
       <section className="space-y-2">
-        <ColoredTitle color="brand">Tailwind v4 テーマ（brand）テスト</ColoredTitle>
-        <p className="text-gray-600">
-          この見出しが <code>text-brand</code> の色ならOK。
+        <ColoredTitle color="brand-600">Tailwind v4 テーマ（brand）テスト</ColoredTitle>
+        <p className="text-text/80">
+          見出しが <code>text-brand-600</code> の色ならOK。
         </p>
       </section>
 
