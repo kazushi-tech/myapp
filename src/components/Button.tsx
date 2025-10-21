@@ -1,7 +1,7 @@
 // src/components/Button.tsx
 import type { ButtonHTMLAttributes } from "react";
 
-type Variant = "solid" | "outline" | "ghost";
+type Variant = "primary" | "secondary" | "outline";
 type Size = "sm" | "md" | "lg";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -10,9 +10,23 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: Size;
 };
 
+const sizeClasses: Record<Size, string> = {
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-4 py-2 text-sm",
+  lg: "px-5 py-3 text-base",
+};
+
+const variantClasses: Record<Variant, string> = {
+  primary: "bg-brand-600 text-white hover:bg-brand-700",
+  secondary:
+    "bg-brand-50 text-brand-700 border-brand-200 hover:bg-brand-100 dark:bg-brand-100/30 dark:text-brand-100 dark:hover:bg-brand-100/20",
+  outline:
+    "border-brand-600 text-brand-600 hover:bg-brand-50 dark:text-brand-100 dark:border-brand-100/50 dark:hover:bg-brand-100/10",
+};
+
 export default function Button({
   loading = false,
-  variant = "solid",
+  variant = "primary",
   size = "md",
   className = "",
   children,
@@ -22,29 +36,20 @@ export default function Button({
   const isDisabled = loading || disabled;
 
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors " +
-    "disabled:opacity-60 disabled:cursor-not-allowed";
+    "inline-flex items-center justify-center gap-2 rounded-lg border border-transparent font-medium transition-colors " +
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 " +
+    "disabled:cursor-not-allowed disabled:opacity-60";
 
-  const sizeClass =
-    size === "sm"
-      ? "px-3 py-1.5 text-sm"
-      : size === "lg"
-      ? "px-5 py-3 text-base"
-      : "px-4 py-2 text-sm";
-
-  const variantClass =
-    variant === "outline"
-      ? "border border-brand-600 text-brand-600 hover:bg-brand-50"
-      : variant === "ghost"
-      ? "text-brand-600 hover:bg-brand-50"
-      : "bg-brand-600 text-white hover:bg-brand-700";
+  const mergedClassName = [base, sizeClasses[size], variantClasses[variant], className]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <button
       {...props}
       disabled={isDisabled}
       aria-busy={loading || undefined}
-      className={[base, sizeClass, variantClass, className].join(" ")}
+      className={mergedClassName}
     >
       {loading && (
         <svg

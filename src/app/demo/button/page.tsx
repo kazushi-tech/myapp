@@ -4,8 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import Button from "@/components/Button";
 
-const VARIANTS = ["solid", "outline", "ghost"] as const;
+const VARIANTS = ["primary", "secondary", "outline"] as const;
+const VARIANT_LABELS: Record<(typeof VARIANTS)[number], string> = {
+  primary: "Primary",
+  secondary: "Secondary",
+  outline: "Outline",
+};
 const SIZES = ["sm", "md", "lg"] as const;
+const SIZE_LABELS: Record<(typeof SIZES)[number], string> = {
+  sm: "Small",
+  md: "Medium",
+  lg: "Large",
+};
 
 export default function Page() {
   const [loading, setLoading] = useState(false);
@@ -32,11 +42,11 @@ export default function Page() {
 
       {VARIANTS.map(v => (
         <section key={v} className="space-y-2">
-          <h2 className="font-semibold">{v}</h2>
+          <h2 className="font-semibold">{VARIANT_LABELS[v]}</h2>
           <div className="flex flex-wrap gap-3">
             {SIZES.map(s => (
               <Button key={s} variant={v} size={s} loading={loading}>
-                {v} / {s}
+                {VARIANT_LABELS[v]} · {SIZE_LABELS[s]}
               </Button>
             ))}
           </div>
