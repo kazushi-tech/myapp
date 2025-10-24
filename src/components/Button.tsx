@@ -1,5 +1,5 @@
 // src/components/Button.tsx
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "outline";
 type Size = "sm" | "md" | "lg";
@@ -8,6 +8,8 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
   variant?: Variant;
   size?: Size;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
 };
 
 const sizeClasses: Record<Size, string> = {
@@ -31,6 +33,8 @@ export default function Button({
   className = "",
   children,
   disabled,
+  leftIcon,
+  rightIcon,
   ...props
 }: ButtonProps) {
   const isDisabled = loading || disabled;
@@ -38,44 +42,59 @@ export default function Button({
   const base =
     "inline-flex items-center justify-center gap-2 rounded-lg border border-transparent font-medium transition-colors " +
     "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 " +
-    "disabled:cursor-not-allowed disabled:opacity-60";
+    "disabled:cursor-not-allowed disabled:opacity-60 data-[loading=true]:cursor-progress";
 
   const mergedClassName = [base, sizeClasses[size], variantClasses[variant], className]
     .filter(Boolean)
     .join(" ");
+
+  const computedLeftIcon = loading ? (
+    <svg
+      className="h-4 w-4 animate-spin"
+      viewBox="0 0 24 24"
+      role="img"
+      aria-label="読み込み中"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="4"
+        opacity="0.25"
+      />
+      <path
+        d="M22 12a10 10 0 0 1-10 10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+    </svg>
+  ) : (
+    leftIcon
+  );
 
   return (
     <button
       {...props}
       disabled={isDisabled}
       aria-busy={loading || undefined}
+      aria-disabled={isDisabled || undefined}
+      data-loading={loading ? "true" : undefined}
       className={mergedClassName}
     >
-      {loading && (
-        <svg
-          className="h-4 w-4 animate-spin"
-          viewBox="0 0 24 24"
-          role="img"
-          aria-label="読み込み中"
-        >
-          <circle
-            cx="12"
-            cy="12"
-            r="10"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="4"
-            opacity="0.25"
-          />
-          <path
-            d="M22 12a10 10 0 0 1-10 10"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="4"
-          />
-        </svg>
+      {computedLeftIcon && (
+        <span className="inline-flex items-center" aria-hidden={loading ? undefined : true}>
+          {computedLeftIcon}
+        </span>
       )}
       <span>{children}</span>
+      {!loading && rightIcon && (
+        <span className="inline-flex items-center" aria-hidden>
+          {rightIcon}
+        </span>
+      )}
     </button>
   );
 }
