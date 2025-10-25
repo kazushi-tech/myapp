@@ -1,44 +1,46 @@
-@theme {
-  /* 既存のベース色（必要に応じて調整） */
-  --color-brand: #6366f1;      /* indigo-500 相当 */
-  --color-brand-600: #4f46e5;  /* hover 用に少し濃いめ */
-  --color-surface: #ffffff;    /* 背景 */
-  --color-text: oklch(0.20 0 0);
+/* ===== Cyberpunk tokens (Step1) ===== */
+:root {
+  --cp-grid-size: 24px;
+  --cp-grid-rgb: 255,255,255;
+  --cp-grid-alpha: 0.06;
+  --cp-cyan-rgb: 0,232,255;
+  --cp-purple-rgb: 155,92,255;
 }
 
-/* === Brand scale (Light) === */
-@theme {
-  /* brand-50〜700：段階で薄→濃（例のOKLCH値） */
-  --color-brand-50:  oklch(0.98 0.01 260);
-  --color-brand-100: oklch(0.96 0.02 260);
-  --color-brand-200: oklch(0.90 0.04 260);
-  --color-brand-300: oklch(0.82 0.06 260);
-  --color-brand-400: oklch(0.72 0.10 260);
-  --color-brand-500: oklch(0.66 0.13 260);
-  --color-brand-600: oklch(0.60 0.13 260); /* 既存brand-600 があればこの値で上書き */
-  --color-brand-700: oklch(0.52 0.15 260);
-
-  /* 直交する本文/面の色（ライト） */
-  --color-surface: oklch(1 0 0);
-  --color-text:    oklch(0.20 0 0);
+.cp-bg {
+  background:
+    radial-gradient(60% 60% at 50% 0%,
+      rgba(var(--cp-cyan-rgb), 0.15),
+      rgba(var(--cp-purple-rgb), 0.08) 40%,
+      rgba(0,0,0,0) 70%),
+    linear-gradient(to right,
+      rgba(var(--cp-grid-rgb), var(--cp-grid-alpha)) 1px, transparent 1px),
+    linear-gradient(to bottom,
+      rgba(var(--cp-grid-rgb), var(--cp-grid-alpha)) 1px, transparent 1px);
+  background-size:
+    cover,
+    var(--cp-grid-size) var(--cp-grid-size),
+    var(--cp-grid-size) var(--cp-grid-size);
+  background-position: center, top left, top left;
 }
 
-/* === Dark mode with [data-theme="dark"] === */
-@theme [data-theme="dark"] {
-  /* ブランド階調（テキスト映えの暗所向け） */
-  --color-brand-50:  oklch(0.22 0.05 260);
-  --color-brand-100: oklch(0.26 0.06 260);
-  --color-brand-200: oklch(0.32 0.08 260);
-  --color-brand-300: oklch(0.40 0.10 260);
-  --color-brand-400: oklch(0.48 0.12 260);
-  --color-brand-500: oklch(0.56 0.13 260);
-  --color-brand-600: oklch(0.60 0.13 260);
-  --color-brand-700: oklch(0.72 0.15 260);
+.cp-glow { filter: drop-shadow(0 0 10px rgba(var(--cp-cyan-rgb), 0.35)); }
 
-  /* 面と文字色（ダーク） */
-  --color-surface: oklch(0.15 0 0);
-  --color-text:    oklch(0.98 0 0);
+.glitch { animation: glitch 1.2s infinite; }
+@keyframes glitch {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(0.5px, -0.5px); }
+  40%  { transform: translate(-0.5px, 0.5px); }
+  60%  { transform: translate(0.3px, 0.3px); }
+  80%  { transform: translate(-0.3px, -0.3px); }
+  100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch { animation: none !important; }
 }
 
-/* （任意）ページ全体へ反映 */
-
+h1,
+h2,
+h3 {
+  font-family: var(--font-orbitron, inherit);
+}

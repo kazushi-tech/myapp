@@ -4,8 +4,8 @@
 - [概要](#概要)
 - [技術スタック](#技術スタック)
 - [ローカル実行](#ローカル実行)
-- [変更ポイント](#変更ポイント)
-- [デプロイ](#デプロイ)
+- [ページ構成](#ページ構成)
+- [チェックコマンド](#チェックコマンド)
 
 ## 概要
 **Next.js（App Router）+ TypeScript + Tailwind CSS** の最小構成。  
@@ -21,3 +21,18 @@
 npm install
 npm run dev
 # http://localhost:3000（または 3001）
+```
+
+## ページ構成
+- `/`：Hero / Features / Pricing / FAQ / CTA を備えたミニランディングページ
+- `/contact`：バリデーション結果を `console.log` に出力する問い合わせフォーム
+- `/demo/button`：Button コンポーネントのバリエーションカタログ
+
+## チェックコマンド
+CI は以下の順序で実行されます。
+
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
