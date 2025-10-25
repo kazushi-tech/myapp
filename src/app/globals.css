@@ -44,3 +44,90 @@ h2,
 h3 {
   font-family: var(--font-orbitron, inherit);
 }
+/* === DEV-GUARD: 背景の黒塊を強制オフ（App Router対応） === */
+/* fixed で貼られた巨大SVGを非表示 */
+svg.fixed,
+.fixed > svg,
+[style*="position:fixed"] svg,
+[style*="position: fixed"] svg {
+  display: none !important;
+}
+/* clip-path / mask を使う固定装飾も無効化 */
+.fixed[style*="clip-path"],
+.fixed[style*="-webkit-clip-path"],
+.fixed[style*="mask"],
+.fixed [style*="clip-path"],
+[style*="position:fixed"][style*="clip-path"],
+[style*="position: fixed"][style*="clip-path"] {
+  display: none !important;
+}
+/* 黒ベタを透明化（保険） */
+svg[fill="black"], svg [fill="black"] { fill: transparent !important; }
+svg[stroke="black"], svg [stroke="black"] { stroke: transparent !important; }
+/* === DEV-NUKE: 巨大SVG/clip-path 背景を開発時だけ強制OFF === */
+/* 小さなUIアイコン（h/w 4〜6）以外の <svg> を全部隠す */
+html.dev svg:not(.h-4):not(.h-5):not(.h-6):not(.w-4):not(.w-5):not(.w-6) {
+  display: none !important;
+}
+/* clip-path / mask を使った背景装飾も無効化 */
+html.dev [style*="clip-path"],
+html.dev [style*="-webkit-clip-path"],
+html.dev [style*="mask"] {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  mask: none !important;
+}
+/* 黒ベタで塗られてるSVGを透明化（#000 系も全部） */
+html.dev svg[fill="black"],
+html.dev svg [fill="black"],
+html.dev svg[fill="#000"],
+html.dev svg [fill="#000"],
+html.dev svg[fill="#000000"],
+html.dev svg [fill="#000000"],
+html.dev svg[style*="fill:#000"],
+html.dev svg [style*="fill:#000"] {
+  fill: transparent !important;
+}
+html.dev svg[stroke="black"],
+html.dev svg [stroke="black"],
+html.dev svg[stroke="#000"],
+html.dev svg [stroke="#000"],
+html.dev svg[style*="stroke:#000"],
+html.dev svg [style*="stroke:#000"] {
+  stroke: transparent !important;
+}
+/* --- dev guard (extended) --- */
+
+/* 既存: 大きいSVGを非表示（小さなUIアイコンは除外） */
+html.dev svg:not(.h-4):not(.h-5):not(.h-6):not(.w-4):not(.w-5):not(.w-6) {
+  display: none !important;
+}
+
+/* 既存: clip-path / mask を無効化（inline styleだけでなく class経由も潰す） */
+html.dev [style*='clip-path'],
+html.dev [style*='mask'],
+html.dev [class*='clip-'],
+html.dev [class*='mask'] {
+  clip-path: none !important;
+  mask: none !important;
+}
+
+/* 既存: #000 系だけでなく 'black' と 'currentColor' も透明化 */
+html.dev svg[fill*='000'], html.dev svg [fill*='000'],
+html.dev svg[stroke*='000'], html.dev svg [stroke*='000'],
+html.dev svg[fill='black'], html.dev svg [fill='black'],
+html.dev svg[stroke='black'], html.dev svg [stroke='black'],
+html.dev svg[fill='currentColor'], html.dev svg [fill='currentColor'],
+html.dev svg[stroke='currentColor'], html.dev svg [stroke='currentColor'] {
+  fill: transparent !important;
+  stroke: transparent !important;
+}
+
+/* デコレーション用のラッパを一括で消せるフック（後述の data-decor とセット） */
+html.dev [data-decor] { display: none !important; }
+
+/* 背景に data URI 等で巨大SVGを貼っている場合の保険（開発時のみ） */
+html.dev *[style*='background:url'], 
+html.dev *[style*='background-image:url'] {
+  background: none !important;
+}

@@ -1,3 +1,4 @@
+// src/app/layout.tsx
 import type { ReactNode } from "react";
 import { Orbitron } from "next/font/google";
 import "./globals.css";
@@ -10,7 +11,8 @@ const orbitron = Orbitron({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="dev">
+
       <body className={`${orbitron.variable} min-h-screen bg-background antialiased cp-bg`}>
         {children}
       </body>
