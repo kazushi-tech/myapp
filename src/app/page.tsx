@@ -103,13 +103,14 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap items-center gap-4" aria-label="主要アクション">
               <form action="/contact">
-                <Button type="submit" variant="primary" size="lg">
+                {/* Step3: CTA を neon に */}
+                <Button type="submit" variant="neon" size="lg">
                   デモを依頼する
                 </Button>
               </form>
               <Link
                 href="/demo/button"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-4 transition hover:text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:text-brand-100"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 underline decoration-brand-200 decoration-2 underline-offset-4 transition hover:text-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-neonCyan dark:text-brand-100"
               >
                 UI コンポーネントを確認
                 <span aria-hidden>→</span>
@@ -190,7 +191,8 @@ export default function Home() {
                 ))}
               </ul>
               <form action="/contact">
-                <Button type="submit" variant="primary" className="w-full">
+                {/* Pricing CTA も neon に統一（任意だが推奨） */}
+                <Button type="submit" variant="neon" className="w-full">
                   担当者に相談する
                 </Button>
               </form>
@@ -232,7 +234,7 @@ export default function Home() {
               </form>
               <Link
                 href="#features"
-                className="inline-flex items-center justify-center rounded-lg border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-600 transition hover:bg-brand-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:border-brand-100/30 dark:text-brand-100 dark:hover:bg-brand-100/20"
+                className="inline-flex items-center justify-center rounded-lg border border-brand-300 px-5 py-3 text-sm font-semibold text-brand-600 transition hover:bg-brand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-neonCyan dark:border-brand-100/30 dark:text-brand-100 dark:hover:bg-brand-100/20"
               >
                 機能一覧を確認
               </Link>
@@ -250,10 +252,7 @@ export default function Home() {
 function IconSparkles() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" focusable="false">
-      <path
-        d="M12 3 13.2 7.8 18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2L12 3ZM6 15l.6 2.4L9 18l-2.4.6L6 21l-.6-2.4L3 18l2.4-.6L6 15Zm12-8 1.2 2.4L21 10l-1.8.6L18 13l-.6-2.4L15 10l2.4-.6L18 7Z"
-        fill="currentColor"
-      />
+      <path d="M12 3 13.2 7.8 18 9l-4.8 1.2L12 15l-1.2-4.8L6 9l4.8-1.2L12 3ZM6 15l.6 2.4L9 18l-2.4.6L6 21l-.6-2.4L3 18l2.4-.6L6 15Zm12-8 1.2 2.4L21 10l-1.8.6L18 13l-.6-2.4L15 10l2.4-.6L18 7Z" fill="currentColor" />
     </svg>
   );
 }
@@ -261,10 +260,7 @@ function IconSparkles() {
 function IconGauge() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" focusable="false">
-      <path
-        d="M12 4a8 8 0 1 0 5.657 13.657 8 8 0 0 0-5.657-13.657Zm0 2a6 6 0 0 1 5.996 6.229l-1.19-.828a1 1 0 0 0-1.28.138l-2.907 2.907a2 2 0 1 1-2.828-2.828l2.906-2.907a1 1 0 0 0 .139-1.279l-.828-1.19A5.983 5.983 0 0 1 12 6Z"
-        fill="currentColor"
-      />
+      <path d="M12 4a8 8 0 1 0 5.657 13.657 8 8 0 0 0-5.657-13.657Zm0 2a6 6 0 0 1 5.996 6.229l-1.19-.828a1 1 0 0 0-1.28.138l-2.907 2.907a2 2 0 1 1-2.828-2.828l2.906-2.907a1 1 0 0 0 .139-1.279l-.828-1.19A5.983 5.983 0 0 1 12 6Z" fill="currentColor" />
     </svg>
   );
 }
@@ -272,10 +268,7 @@ function IconGauge() {
 function IconShield() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" focusable="false">
-      <path
-        d="M12 3 4 6v6c0 4.755 3.994 8.716 8 9 4.006-.284 8-4.245 8-9V6l-8-3Zm0 2.236 6 2.25V12c0 3.55-2.997 6.84-6 7.086C9.002 18.84 6 15.55 6 12V7.486l6-2.25Zm0 3.264a3 3 0 0 0-3 3c0 1.657 1.343 3 3 3a3 3 0 1 0 0-6Z"
-        fill="currentColor"
-      />
+      <path d="M12 3 4 6v6c0 4.755 3.994 8.716 8 9 4.006-.284 8-4.245 8-9V6l-8-3Zm0 2.236 6 2.25V12c0 3.55-2.997 6.84-6 7.086C9.002 18.84 6 15.55 6 12V7.486l6-2.25Zm0 3.264a3 3 0 0 0-3 3c0 1.657 1.343 3 3 3a3 3 0 1 0 0-6Z" fill="currentColor" />
     </svg>
   );
 }
@@ -283,10 +276,7 @@ function IconShield() {
 function IconLightning() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" focusable="false">
-      <path
-        d="M13 2 5 13h5v9l8-11h-5L13 2Z"
-        fill="currentColor"
-      />
+      <path d="M13 2 5 13h5v9l8-11h-5L13 2Z" fill="currentColor" />
     </svg>
   );
 }
@@ -294,10 +284,7 @@ function IconLightning() {
 function IconPlan() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6" aria-hidden="true" focusable="false">
-      <path
-        d="M4 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v14a1 1 0 0 1-1.447.894L12 17.118l-6.553 2.776A1 1 0 0 1 4 19V5Zm3-1a1 1 0 0 0-1 1v12.382l5.553-2.352a1 1 0 0 1 .894 0L18 17.382V5a1 1 0 0 0-1-1H7Zm1 4h8v2H8V8Zm0 4h8v2H8v-2Z"
-        fill="currentColor"
-      />
+      <path d="M4 5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v14a1 1 0 0 1-1.447.894L12 17.118l-6.553 2.776A1 1 0 0 1 4 19V5Zm3-1a1 1 0 0 0-1 1v12.382l5.553-2.352a1 1 0 0 1 .894 0L18 17.382V5a1 1 0 0 0-1-1H7Zm1 4h8v2H8V8Zm0 4h8v2H8v-2Z" fill="currentColor" />
     </svg>
   );
 }

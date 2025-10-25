@@ -1,47 +1,62 @@
-'use client';
+// src/components/Navbar.tsx
+"use client";
 
 import Link from "next/link";
+// ThemeToggle が無いプロジェクトなら下行を削除＆JSXの <ThemeToggle /> も削除してください
 import ThemeToggle from "@/components/ThemeToggle";
-
-const navItems = [
-  { href: "#features", label: "特徴" },
-  { href: "#pricing", label: "料金" },
-  { href: "#faq", label: "FAQ" },
-  { href: "/contact", label: "お問い合わせ" },
-  { href: "/demo/button", label: "Button Demo" },
-] as const;
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-white/10 dark:bg-black/50">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4">
-        <Link
-          href="/"
-          className="text-lg font-semibold tracking-tight text-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:text-brand-100"
-        >
-          launchmate
-        </Link>
-        <nav aria-label="主要ナビゲーション" className="flex items-center gap-4">
-          {navItems.map((item) => (
+    <header className="sticky top-0 z-40 w-full bg-background/70 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav className="relative">
+        {/* 下線グラデ */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-neonPink via-neonCyan to-neonPurple"
+        />
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4">
+          <div className="flex items-center gap-6">
             <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-black/70 transition hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 dark:text-white/70 dark:hover:text-white"
+              href="/"
+              className="font-semibold focus:outline-none focus-visible:ring-2 ring-offset-2 ring-neonCyan"
             >
-              {item.label}
+              MYAPP
             </Link>
-          ))}
-        </nav>
-        <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <Link
-            href="#cta"
-            className="inline-flex items-center justify-center rounded-lg bg-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
-          >
-            無料で始める
-          </Link>
+
+            <Link
+              href="/demo/button"
+              className="text-sm text-muted-foreground hover:text-foreground focus:outline-none focus-visible:ring-2 ring-offset-2 ring-neonCyan"
+            >
+              /demo/button
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-sm text-muted-foreground hover:text-foreground focus:outline-none focus-visible:ring-2 ring-offset-2 ring-neonCyan md:hidden"
+            >
+              /contact
+            </Link>
+          </div>
+
+          <div className="flex items-center gap-3">
+            {/* 無ければ削除 */}
+            <ThemeToggle />
+
+            {/* CTA: Link をボタン風にスタイリング（neon相当） */}
+            <Link
+              href="/contact"
+              className={[
+                "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors",
+                "border border-neonCyan text-neonCyan bg-transparent hover:bg-neonCyan/10",
+                "focus:outline-none focus-visible:ring-2 ring-offset-2 ring-neonCyan",
+                "px-3 py-1.5 text-sm" // size="sm" 相当
+              ].join(" ")}
+            >
+              Contact
+            </Link>
+          </div>
         </div>
-      </div>
+      </nav>
     </header>
   );
 }
