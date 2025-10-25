@@ -1,44 +1,133 @@
-@theme {
-  /* 既存のベース色（必要に応じて調整） */
-  --color-brand: #6366f1;      /* indigo-500 相当 */
-  --color-brand-600: #4f46e5;  /* hover 用に少し濃いめ */
-  --color-surface: #ffffff;    /* 背景 */
-  --color-text: oklch(0.20 0 0);
+/* ===== Cyberpunk tokens (Step1) ===== */
+:root {
+  --cp-grid-size: 24px;
+  --cp-grid-rgb: 255,255,255;
+  --cp-grid-alpha: 0.06;
+  --cp-cyan-rgb: 0,232,255;
+  --cp-purple-rgb: 155,92,255;
 }
 
-/* === Brand scale (Light) === */
-@theme {
-  /* brand-50〜700：段階で薄→濃（例のOKLCH値） */
-  --color-brand-50:  oklch(0.98 0.01 260);
-  --color-brand-100: oklch(0.96 0.02 260);
-  --color-brand-200: oklch(0.90 0.04 260);
-  --color-brand-300: oklch(0.82 0.06 260);
-  --color-brand-400: oklch(0.72 0.10 260);
-  --color-brand-500: oklch(0.66 0.13 260);
-  --color-brand-600: oklch(0.60 0.13 260); /* 既存brand-600 があればこの値で上書き */
-  --color-brand-700: oklch(0.52 0.15 260);
-
-  /* 直交する本文/面の色（ライト） */
-  --color-surface: oklch(1 0 0);
-  --color-text:    oklch(0.20 0 0);
+.cp-bg {
+  background:
+    radial-gradient(60% 60% at 50% 0%,
+      rgba(var(--cp-cyan-rgb), 0.15),
+      rgba(var(--cp-purple-rgb), 0.08) 40%,
+      rgba(0,0,0,0) 70%),
+    linear-gradient(to right,
+      rgba(var(--cp-grid-rgb), var(--cp-grid-alpha)) 1px, transparent 1px),
+    linear-gradient(to bottom,
+      rgba(var(--cp-grid-rgb), var(--cp-grid-alpha)) 1px, transparent 1px);
+  background-size:
+    cover,
+    var(--cp-grid-size) var(--cp-grid-size),
+    var(--cp-grid-size) var(--cp-grid-size);
+  background-position: center, top left, top left;
 }
 
-/* === Dark mode with [data-theme="dark"] === */
-@theme [data-theme="dark"] {
-  /* ブランド階調（テキスト映えの暗所向け） */
-  --color-brand-50:  oklch(0.22 0.05 260);
-  --color-brand-100: oklch(0.26 0.06 260);
-  --color-brand-200: oklch(0.32 0.08 260);
-  --color-brand-300: oklch(0.40 0.10 260);
-  --color-brand-400: oklch(0.48 0.12 260);
-  --color-brand-500: oklch(0.56 0.13 260);
-  --color-brand-600: oklch(0.60 0.13 260);
-  --color-brand-700: oklch(0.72 0.15 260);
+.cp-glow { filter: drop-shadow(0 0 10px rgba(var(--cp-cyan-rgb), 0.35)); }
 
-  /* 面と文字色（ダーク） */
-  --color-surface: oklch(0.15 0 0);
-  --color-text:    oklch(0.98 0 0);
+.glitch { animation: glitch 1.2s infinite; }
+@keyframes glitch {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(0.5px, -0.5px); }
+  40%  { transform: translate(-0.5px, 0.5px); }
+  60%  { transform: translate(0.3px, 0.3px); }
+  80%  { transform: translate(-0.3px, -0.3px); }
+  100% { transform: translate(0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glitch { animation: none !important; }
 }
 
-/* （任意）ページ全体へ反映 */
+h1,
+h2,
+h3 {
+  font-family: var(--font-orbitron, inherit);
+}
+/* === DEV-GUARD: 背景の黒塊を強制オフ（App Router対応） === */
+/* fixed で貼られた巨大SVGを非表示 */
+svg.fixed,
+.fixed > svg,
+[style*="position:fixed"] svg,
+[style*="position: fixed"] svg {
+  display: none !important;
+}
+/* clip-path / mask を使う固定装飾も無効化 */
+.fixed[style*="clip-path"],
+.fixed[style*="-webkit-clip-path"],
+.fixed[style*="mask"],
+.fixed [style*="clip-path"],
+[style*="position:fixed"][style*="clip-path"],
+[style*="position: fixed"][style*="clip-path"] {
+  display: none !important;
+}
+/* 黒ベタを透明化（保険） */
+svg[fill="black"], svg [fill="black"] { fill: transparent !important; }
+svg[stroke="black"], svg [stroke="black"] { stroke: transparent !important; }
+/* === DEV-NUKE: 巨大SVG/clip-path 背景を開発時だけ強制OFF === */
+/* 小さなUIアイコン（h/w 4〜6）以外の <svg> を全部隠す */
+html.dev svg:not(.h-4):not(.h-5):not(.h-6):not(.w-4):not(.w-5):not(.w-6) {
+  display: none !important;
+}
+/* clip-path / mask を使った背景装飾も無効化 */
+html.dev [style*="clip-path"],
+html.dev [style*="-webkit-clip-path"],
+html.dev [style*="mask"] {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  mask: none !important;
+}
+/* 黒ベタで塗られてるSVGを透明化（#000 系も全部） */
+html.dev svg[fill="black"],
+html.dev svg [fill="black"],
+html.dev svg[fill="#000"],
+html.dev svg [fill="#000"],
+html.dev svg[fill="#000000"],
+html.dev svg [fill="#000000"],
+html.dev svg[style*="fill:#000"],
+html.dev svg [style*="fill:#000"] {
+  fill: transparent !important;
+}
+html.dev svg[stroke="black"],
+html.dev svg [stroke="black"],
+html.dev svg[stroke="#000"],
+html.dev svg [stroke="#000"],
+html.dev svg[style*="stroke:#000"],
+html.dev svg [style*="stroke:#000"] {
+  stroke: transparent !important;
+}
+/* --- dev guard (extended) --- */
 
+/* 既存: 大きいSVGを非表示（小さなUIアイコンは除外） */
+html.dev svg:not(.h-4):not(.h-5):not(.h-6):not(.w-4):not(.w-5):not(.w-6) {
+  display: none !important;
+}
+
+/* 既存: clip-path / mask を無効化（inline styleだけでなく class経由も潰す） */
+html.dev [style*='clip-path'],
+html.dev [style*='mask'],
+html.dev [class*='clip-'],
+html.dev [class*='mask'] {
+  clip-path: none !important;
+  mask: none !important;
+}
+
+/* 既存: #000 系だけでなく 'black' と 'currentColor' も透明化 */
+html.dev svg[fill*='000'], html.dev svg [fill*='000'],
+html.dev svg[stroke*='000'], html.dev svg [stroke*='000'],
+html.dev svg[fill='black'], html.dev svg [fill='black'],
+html.dev svg[stroke='black'], html.dev svg [stroke='black'],
+html.dev svg[fill='currentColor'], html.dev svg [fill='currentColor'],
+html.dev svg[stroke='currentColor'], html.dev svg [stroke='currentColor'] {
+  fill: transparent !important;
+  stroke: transparent !important;
+}
+
+/* デコレーション用のラッパを一括で消せるフック（後述の data-decor とセット） */
+html.dev [data-decor] { display: none !important; }
+
+/* 背景に data URI 等で巨大SVGを貼っている場合の保険（開発時のみ） */
+html.dev *[style*='background:url'], 
+html.dev *[style*='background-image:url'] {
+  background: none !important;
+}

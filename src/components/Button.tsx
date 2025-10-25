@@ -1,100 +1,39 @@
 // src/components/Button.tsx
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+"use client";
 
-type Variant = "primary" | "secondary" | "outline";
-type Size = "sm" | "md" | "lg";
+import * as React from "react";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  loading?: boolean;
-  variant?: Variant;
-  size?: Size;
-  leftIcon?: ReactNode;
-  rightIcon?: ReactNode;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "secondary" | "outline" | "neon";
+  size?: "sm" | "md" | "lg";
 };
 
-const sizeClasses: Record<Size, string> = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2 text-sm",
-  lg: "px-5 py-3 text-base",
+const BASE =
+  "inline-flex items-center justify-center rounded-md font-medium transition-colors " +
+  "focus:outline-none focus-visible:ring-2 ring-offset-2 ring-neonCyan " +
+  "disabled:opacity-50 disabled:pointer-events-none";
+
+const SIZES: Record<NonNullable<ButtonProps["size"]>, string> = {
+  sm: "h-9 px-3 text-sm",
+  md: "h-10 px-4 text-base",
+  lg: "h-12 px-6 text-base",
 };
 
-const variantClasses: Record<Variant, string> = {
-  primary: "bg-brand-600 text-white hover:bg-brand-700",
-  secondary:
-    "bg-brand-50 text-brand-700 border-brand-200 hover:bg-brand-100 dark:bg-brand-100/30 dark:text-brand-100 dark:hover:bg-brand-100/20",
-  outline:
-    "border-brand-600 text-brand-600 hover:bg-brand-50 dark:text-brand-100 dark:border-brand-100/50 dark:hover:bg-brand-100/10",
+const VARIANTS: Record<NonNullable<ButtonProps["variant"]>, string> = {
+  primary: "bg-foreground text-background hover:bg-foreground/90",
+  secondary: "bg-muted text-foreground hover:bg-muted/80",
+  outline: "border border-border bg-transparent hover:bg-muted/40",
+  neon: "border border-neonCyan text-neonCyan hover:bg-neonCyan/10",
 };
 
-export default function Button({
-  loading = false,
-  variant = "primary",
-  size = "md",
-  className = "",
-  children,
-  disabled,
-  leftIcon,
-  rightIcon,
-  ...props
-}: ButtonProps) {
-  const isDisabled = loading || disabled;
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant = "primary", size = "md", className = "", ...props }, ref) => {
+    const cls = [BASE, SIZES[size], VARIANTS[variant], className]
+      .filter(Boolean)
+      .join(" ");
+    return <button ref={ref} className={cls} {...props} />;
+  }
+);
+Button.displayName = "Button";
 
-  const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg border border-transparent font-medium transition-colors " +
-    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 " +
-    "disabled:cursor-not-allowed disabled:opacity-60 data-[loading=true]:cursor-progress";
-
-  const mergedClassName = [base, sizeClasses[size], variantClasses[variant], className]
-    .filter(Boolean)
-    .join(" ");
-
-  const computedLeftIcon = loading ? (
-    <svg
-      className="h-4 w-4 animate-spin"
-      viewBox="0 0 24 24"
-      role="img"
-      aria-label="読み込み中"
-    >
-      <circle
-        cx="12"
-        cy="12"
-        r="10"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="4"
-        opacity="0.25"
-      />
-      <path
-        d="M22 12a10 10 0 0 1-10 10"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="4"
-      />
-    </svg>
-  ) : (
-    leftIcon
-  );
-
-  return (
-    <button
-      {...props}
-      disabled={isDisabled}
-      aria-busy={loading || undefined}
-      aria-disabled={isDisabled || undefined}
-      data-loading={loading ? "true" : undefined}
-      className={mergedClassName}
-    >
-      {computedLeftIcon && (
-        <span className="inline-flex items-center" aria-hidden={loading ? undefined : true}>
-          {computedLeftIcon}
-        </span>
-      )}
-      <span>{children}</span>
-      {!loading && rightIcon && (
-        <span className="inline-flex items-center" aria-hidden>
-          {rightIcon}
-        </span>
-      )}
-    </button>
-  );
-}
+export default Button;
