@@ -1,23 +1,16 @@
 ---
-title: "nazology.kusuguru.co.jp"
-host: "nazology.kusuguru.co.jp"
-kind: "source-index"
-updated: "2025-11-16"
+title: AI News – nazology.kusuguru.co.jp
+host: nazology.kusuguru.co.jp
 ---
 
-# ナゾロジー (nazology.kusuguru.co.jp) – AI News Index
+# nazology.kusuguru.co.jp
 
-このページは `.dev/scripts/build_sources_index.mjs` によって自動生成されています。
-手動で編集すると、次回の自動生成時に上書きされる可能性があります。
+> このページは `scripts/build_sources_index.mjs` によって自動生成されています。手動で編集しないでください。
 
-## 記事一覧
-
-| 日付 | タイトル | 記事 | 要約 |
+| 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
-| 2025-11-09 | 脳の自己組織化を促すニューロン成長アルゴリズムが開発される | [[articles/2025-11-09--nazology.kusuguru.co.jp--124642.md|記事ページへ ›]] | スイスの研究チームが、生物の脳の発生過程における自己組織化を模倣するニューロン成長アルゴリズムを開発しました。コンピュータシミュレーション上で機能的な脳のような回路が形成され、学習能力や自己修復能力を持つ自律的なAIシステムの基盤となる可能性が示されています。 |
-| 2025-11-09 | 情報不足によりナゾロジー記事内容を特定できない件について | [[articles/2025-11-09--nazology.kusuguru.co.jp--124708.md|記事ページへ ›]] | 提供されたCLIPPED情報がなく、URL CONTEXTもメタ情報に限定されているため、ナゾロジー記事の具体的な内容を特定できません。このため、本記事の要約は行えません。 |
-| 2025-11-09 | 「AI生成」と知ると読解速度が低下し評価も下がる研究結果 | [[articles/2025-11-09--nazology.kusuguru.co.jp--138937.md|記事ページへ ›]] | AIが生成した文章だと認識すると、人間はその文章の読解速度が低下し、内容に対する評価も著しく低くなることが判明しました。オハイオ州立大学の研究で「AIラベルバイアス」と名付けられ、AIの信頼性や情報提示の重要性を示唆します。 |
-| 2025-11-09 | AIが人間の「奇妙な思考」を学習：非合理的な夢を生成する新システム開発 | [[articles/2025-11-09--nazology.kusuguru.co.jp--187631.md|記事ページへ ›]] | Gemini 2.5-flashを基盤とした研究が、人間の非合理的な思考パターンをAIに学習させ、奇妙で独創的な夢のようなイメージを生成する新システムを開発しました。これは、AIが論理的推論を超えた創造性を持つ可能性を示唆しています。 |
-| 2025-11-09 | スタンフォード大学の研究から「その確率も教えて」でAIが覚醒すると判明 - ナゾロジー | [[articles/2025-11-09--nazology.kusuguru.co.jp--ai.md|記事ページへ ›]] | \|- |
-| 2025-11-09 | 月は地球の衛星でなく「仲間」？巨大衝突後のシンセティアから同時形成の新説 | [[articles/2025-11-09/nazology.kusuguru.co.jp--160073.md|記事ページへ ›]] | >- |
-| 2025-11-08 | 人間を監視するAIが倫理的ジレンマに直面し共感の兆候を示す可能性 | [[articles/2025-11-08/nazology.kusuguru.co.jp--124552.md|記事ページへ ›]] | >- |
+| 2025-11-09 | スタンフォード大学の研究から「その確率も教えて」でAIが覚醒すると判明 - ナゾロジー | [記事](ai-news/articles/2025-11-09--nazology.kusuguru.co.jp--ai.md) | [リンク](https://nazology.kusuguru.co.jp/archives/187383) |
+| 2025-11-09 | AIが人間の「奇妙な思考」を学習：非合理的な夢を生成する新システム開発 | [記事](ai-news/articles/2025-11-09--nazology.kusuguru.co.jp--187631.md) | [リンク](https://nazology.kusuguru.co.jp/archives/187631) |
+| 2025-11-09 | 「AI生成」と知ると読解速度が低下し評価も下がる研究結果 | [記事](ai-news/articles/2025-11-09--nazology.kusuguru.co.jp--138937.md) | [リンク](https://nazology.kusuguru.co.jp/archives/138937) |
+| 2025-11-09 | 情報不足によりナゾロジー記事内容を特定できない件について | [記事](ai-news/articles/2025-11-09--nazology.kusuguru.co.jp--124708.md) | [リンク](https://nazology.kusuguru.co.jp/archives/124708) |
+| 2025-11-09 | 脳の自己組織化を促すニューロン成長アルゴリズムが開発される | [記事](ai-news/articles/2025-11-09--nazology.kusuguru.co.jp--124642.md) | [リンク](https://nazology.kusuguru.co.jp/archives/124642) |

@@ -1,17 +1,12 @@
 ---
-title: "arxiv.org"
-host: "arxiv.org"
-kind: "source-index"
-updated: "2025-11-16"
+title: AI News – arxiv.org
+host: arxiv.org
 ---
 
-# arxiv.org (arxiv.org) – AI News Index
+# arxiv.org
 
-このページは `.dev/scripts/build_sources_index.mjs` によって自動生成されています。
-手動で編集すると、次回の自動生成時に上書きされる可能性があります。
+> このページは `scripts/build_sources_index.mjs` によって自動生成されています。手動で編集しないでください。
 
-## 記事一覧
-
-| 日付 | タイトル | 記事 | 要約 |
+| 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
-| 2025-11-16 | [サイト名] ここにタイトルを書く | [[articles/2025-11-16--arxiv.org--abs-2410.12345.md|記事ページへ ›]] | このノートは、記事の要約を作成するためのテンプレートであり、具体的な内容が記述されていません。そのため、現在のところ記事の概要や重要なポイントを要約することはできません。 |
+| 2025-11-16 | [サイト名] ここにタイトルを書く | [記事](ai-news/articles/2025-11-16--arxiv.org--abs-2410.12345.md) | [リンク](https://arxiv.org/abs/2410.12345) |

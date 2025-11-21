@@ -1,17 +1,14 @@
 ---
-title: "bloomberg.co.jp"
-host: "bloomberg.co.jp"
-kind: "source-index"
-updated: "2025-11-16"
+title: AI News – bloomberg.co.jp
+host: bloomberg.co.jp
 ---
 
-# Bloomberg (bloomberg.co.jp) – AI News Index
+# bloomberg.co.jp
 
-このページは `.dev/scripts/build_sources_index.mjs` によって自動生成されています。
-手動で編集すると、次回の自動生成時に上書きされる可能性があります。
+> このページは `scripts/build_sources_index.mjs` によって自動生成されています。手動で編集しないでください。
 
-## 記事一覧
-
-| 日付 | タイトル | 記事 | 要約 |
+| 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
-| 2025-11-14 | テスト記事 | [[articles/2025-11-14--bloomberg-test.md.md|記事ページへ ›]] | これはテスト用の要約です。 |
+| 2025-11-14T00:00:00.000Z | テスト記事 | [記事](ai-news/articles/2025-11-14--bloomberg-test.md.md) | [リンク](https://www.bloomberg.co.jp/test) |
+|  | アップル、Siri刷新でグーグルAI採用へ－年間10億ドル支払いで調整 | [記事](ai-news/articles/2025-11-19--www.bloomberg.co.jp--siri-ai-10.md) | [リンク](https://www.bloomberg.co.jp/news/articles/2025-11-05/T59PCUGP493600) |
+|  | アップル、Siri刷新でグーグルAI採用へ | [記事](ai-news/articles/2025-11-19--www.bloomberg.co.jp--news-articles-2025-11-05-t59pcugp493600.md) | [リンク](https://www.bloomberg.co.jp/news/articles/2025-11-05/T59PCUGP493600) |

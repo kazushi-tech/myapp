@@ -1,17 +1,13 @@
 ---
-title: "openai.com"
-host: "openai.com"
-kind: "source-index"
-updated: "2025-11-16"
+title: AI News – openai.com
+host: openai.com
 ---
 
-# openai.com (openai.com) – AI News Index
+# openai.com
 
-このページは `.dev/scripts/build_sources_index.mjs` によって自動生成されています。
-手動で編集すると、次回の自動生成時に上書きされる可能性があります。
+> このページは `scripts/build_sources_index.mjs` によって自動生成されています。手動で編集しないでください。
 
-## 記事一覧
-
-| 日付 | タイトル | 記事 | 要約 |
+| 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
-| 2025-11-11 | research | [[articles/2025-11-11–openai.com–research.md|記事ページへ ›]] | 本文が提供されていないため、要約を作成できません。 |
+| 2025-11-19 | https://openai.com/index/understanding-neural-networks-through-sparse-circuits/ | [記事](ai-news/articles/2025-11-19--openai.com--understanding-neural-networks-through-sparse-circuits.md) | [リンク](https://openai.com/index/understanding-neural-networks-through-sparse-circuits/) |
+| 2025-11-11 | research | [記事](ai-news/articles/2025-11-11–openai.com–research.md) | [リンク](https://openai.com/research) |

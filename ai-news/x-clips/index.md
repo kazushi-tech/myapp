@@ -1,29 +1,12 @@
 ---
-title: X Clips 一覧
-kind: x-clip-index
+title: X clips index
 ---
 
-# X Clips 一覧
+# X clips 一覧
 
-> [!info]
-> - Xは「ニュース発見用チャネル」、ここは「残したいツイートだけを整理する保管庫」。
-> - 基本ルール  
->   - クリップ先: `ai-news/x-clips/`  
->   - プロパティ: `title`, `url`, `domain`, `created`, `kind: x-clip` を必須にする  
->   - 本文には最低限「TL;DR / 抽出テキスト / 自分のメモ」を残す
+> このページは `scripts/build_index_x_clips.mjs` によって自動生成されています。手動で編集しないでください。
 
----
-
-## 最近のクリップ 50件
-
-```dataview
-TABLE
-  created AS "日付",
-  file.link AS "ノート",
-  url AS "元ツイート",
-  domain AS "ドメイン"
-FROM "ai-news/x-clips"
-WHERE kind = "x-clip"
-SORT created DESC
-LIMIT 50
-`````
+| 日付 | タイトル | クリップノート | 元ツイート |
+| --- | --- | --- | --- |
+| 2025-11-20 | Thread by @NatureNature109 | [ノート](ai-news/x-clips/2025-11-20--x.com--Thread by @NatureNature109.md) | [リンク](https://x.com/naturenature109/status/1988910528274608592?s=46&t=ZacuOuwjVfR4xuhGZmlmzQ) |
+| 2025-11-20 | Thread by @NatureNature109 | [ノート](ai-news/x-clips/2025-11-20--x.com--Thread by @NatureNature109 1.md) | [リンク](https://x.com/naturenature109/status/1988910528274608592?s=46&t=ZacuOuwjVfR4xuhGZmlmzQ) |

@@ -1,22 +1,19 @@
 ---
-title: "x.com"
-host: "x.com"
-kind: "source-index"
-updated: "2025-11-16"
+title: AI News – x.com
+host: x.com
 ---
 
-# X (Twitter) (x.com) – AI News Index
+# x.com
 
-このページは `.dev/scripts/build_sources_index.mjs` によって自動生成されています。
-手動で編集すると、次回の自動生成時に上書きされる可能性があります。
+> このページは `scripts/build_sources_index.mjs` によって自動生成されています。手動で編集しないでください。
 
-## 記事一覧
-
-| 日付 | タイトル | 記事 | 要約 |
+| 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
-| 2025-11-16 | [x.com] commonstyle-status-1987742155889410384 | [[articles/2025-11-16--x.com--commonstyle-status-1987742155889410384.md|記事ページへ ›]] | 提供されたMarkdownノートは、Xの投稿を要約するためのテンプレートであり、具体的な記事内容やその要約は含まれていません。そのため、このノート本文からTL;DRを生成することはできません。 |
-| 2025-11-16 | [x.com] naturenature109-status-1988910528274608592 | [[articles/2025-11-16--x.com--naturenature109-status-1988910528274608592.md|記事ページへ ›]] | このMarkdownノートは、特定のX（旧Twitter）ポストの内容を要約するためのテンプレートであり、記事自体の具体的な情報は含まれていません。したがって、このノート単体からは、元のポストの重要なポイントや含意を抽出してTL;DRを作成することはできません。 |
-| 2025-11-15 | ツイート本文... | [[articles/2025-11-15--x.com--....md|記事ページへ ›]] | >- |
-| 2025-11-15 | @elonmusk: テストツイート本文 dotenv 修正後テスト | [[articles/2025-11-15--x.com--elonmusk-status-1234567890.md|記事ページへ ›]] | >- |
-| 2025-11-09 | X（旧Twitter）上の特定投稿URLにアクセスしたところ、具体的な投稿内容や投稿者は確認できず、Xプラットフォームからの一般的なメッセージが表示されました… | [[articles/2025-11-09--x.com--title-x-2.md|記事ページへ ›]] | \|- |
-| 2025-11-09 | ご指定いただいたX（旧Twitter）のURLにアクセスを試みましたが、投稿ページは存在しないか、既に削除されているため | [[articles/2025-11-09--x.com--title-x.md|記事ページへ ›]] | \|- |
+| 2025-11-19 | https://x.com/lentils80/status/1988662114630665056 | [記事](ai-news/articles/2025-11-19--x.com--1988662114630665056.md) | [リンク](https://x.com/lentils80/status/1988662114630665056) |
+| 2025-11-16 | [x.com] naturenature109-status-1988910528274608592 | [記事](ai-news/articles/2025-11-16--x.com--naturenature109-status-1988910528274608592.md) | [リンク](https://x.com/naturenature109/status/1988910528274608592?s=46&t=ZacuOuwjVfR4xuhGZmlmzQ) |
+| 2025-11-16 | [x.com] commonstyle-status-1987742155889410384 | [記事](ai-news/articles/2025-11-16--x.com--commonstyle-status-1987742155889410384.md) | [リンク](https://x.com/commonstyle/status/1987742155889410384?s=46&t=ZacuOuwjVfR4xuhGZmlmzQ) |
+| 2025-11-15 | @elonmusk: テストツイート本文 dotenv 修正後テスト | [記事](ai-news/articles/2025-11-15--x.com--elonmusk-status-1234567890.md) | [リンク](https://x.com/elonmusk/status/1234567890) |
+| 2025-11-15 | ツイート本文... | [記事](ai-news/articles/2025-11-15--x.com--....md) | [リンク](https://x.com/...) |
+| 2025-11-09 | ご指定いただいたX（旧Twitter）のURLにアクセスを試みましたが、投稿ページは存在しないか、既に削除されているため | [記事](ai-news/articles/2025-11-09--x.com--title-x.md) | [リンク](https://x.com/oikon48/status/1983185422423723304) |
+| 2025-11-09 | X（旧Twitter）上の特定投稿URLにアクセスしたところ、具体的な投稿内容や投稿者は確認できず、Xプラットフォームからの一般的なメッセージが表示されました… | [記事](ai-news/articles/2025-11-09--x.com--title-x-2.md) | [リンク](https://x.com/oikon48/status/1983185422437233047) |
+|  | 画像生成AI「Nano Banana 2」、描写能力とアートスタイル再現性を大幅に向上 | [記事](ai-news/articles/2025-11-19--x.com--lentils-lentils80-on-x.md) | [リンク](https://x.com/lentils80/status/1988661211463066056?s=46&t=ZacuOuwjVfR4xuhGZmlmzQ) |
