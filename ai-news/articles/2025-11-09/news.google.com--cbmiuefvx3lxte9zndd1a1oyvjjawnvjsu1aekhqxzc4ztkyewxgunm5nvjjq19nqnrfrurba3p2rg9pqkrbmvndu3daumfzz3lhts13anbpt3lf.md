@@ -14,11 +14,13 @@ check: true
 date: '2025-11-09'
 source_url: >-
 kind: summary
+cssclass: ai-news-article
 ---
-> [!summary] TL;DR
-> 提供されたURL CONTEXTには記事本文のコンテンツが含まれておらず、CLIPPEDも存在しないため、記事の要約や内容を生成することはできません。
 
 # 記事コンテンツが提供されていないため、具体的なタイトルを生成できません
+
+> [!summary] TL;DR
+> 提供されたURL CONTEXTには記事本文のコンテンツが含まれておらず、CLIPPEDも存在しないため、記事の要約や内容を生成することはできません。
 
 > [!abstract] TL;DR
 > - 提供されたURL CONTEXTには記事本文のコンテンツが含まれておらず、CLIPPEDも存在しないため、記事の要約や内容を生成することはできません

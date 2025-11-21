@@ -7,8 +7,10 @@ host: "augmentcode.com"
 tldr: "articles → daily → index までのパイプライン確認用のダミー記事。"
 key_points:
   - "11/18 分の AI News テーブルに 1 行出るかテスト。"
+cssclass: ai-news-article
 ---
-# "デバッグ: augmentcode pipeline"
+
+# デバッグ: augmentcode pipeline
 
 > [!summary] TL;DR
 > "articles → daily → index までのパイプライン確認用のダミー記事。"

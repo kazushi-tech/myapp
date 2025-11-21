@@ -15,11 +15,13 @@ check: true
 date: '2025-11-08'
 source_url: >-
 kind: summary
+cssclass: ai-news-article
 ---
-> [!summary] TL;DR
-> Googleはオクラホマ州でデジタル人材育成と経済成長を目的とした新たなプログラムを発表しました。技術分野の労働力強化と地域のデジタルスキル向上を目指します。
 
 # Google、オクラホマ州の技術人材育成を支援するプログラムを発表
+
+> [!summary] TL;DR
+> Googleはオクラホマ州でデジタル人材育成と経済成長を目的とした新たなプログラムを発表しました。技術分野の労働力強化と地域のデジタルスキル向上を目指します。
 
 > [!abstract] TL;DR
 > - >-

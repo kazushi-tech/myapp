@@ -13,7 +13,9 @@ tldr: |-
 created: 2025-11-12
 url: ""
 kind: summary
+cssclass: ai-news-article
 ---
+
 # Google prepares Genie 3 public experiment with AI worlds
 
 > [!abstract] TL;DR

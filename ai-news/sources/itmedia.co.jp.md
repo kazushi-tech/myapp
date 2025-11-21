@@ -9,6 +9,7 @@ host: itmedia.co.jp
 
 | 日付 | タイトル | 記事ページ | 元記事 |
 | --- | --- | --- | --- |
+| 2025-11-21 | https://www.itmedia.co.jp/aiplus/articles/2511/06/news084.html | [記事](ai-news/articles/2025-11-21--www.itmedia.co.jp--news084-html.md) | [リンク](https://www.itmedia.co.jp/aiplus/articles/2511/06/news084.html) |
 | 2025-11-16 | Anthropic�A�uClaude�v���������{�n�U���҂Ɉ��p���ꂽ�ƕ� | [記事](ai-news/articles/2025-11-16--www.itmedia.co.jp--news-articles-2511-14-news061.html.md) | [リンク](https://www.itmedia.co.jp/news/articles/2511/14/news061.html) |
 | 2025-11-16 | �uSora 2�v�����񂾌Ղ̔��@��������{��̐������o���A�����͂����钘�쌠�@�́g���n��`�h�F�����M�ǂ�IT����i1/2 �y�[�W�j | [記事](ai-news/articles/2025-11-16--www.itmedia.co.jp--news-articles-2511-14-news059.html.md) | [リンク](https://www.itmedia.co.jp/news/articles/2511/14/news059.html) |
 | 2025-11-16 | AIが日本企業に与える影響：『創る』『組み込む』『使う』の3つの軸 | [記事](ai-news/articles/2025-11-16--www.itmedia.co.jp--news-articles-2511-14-news015.html.md) | [リンク](https://www.itmedia.co.jp/news/articles/2511/14/news015.html) |

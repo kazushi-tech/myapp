@@ -16,11 +16,13 @@ check: true
 date: '2025-11-09'
 source_url: >-
 kind: summary
+cssclass: ai-news-article
 ---
-> [!summary] TL;DR
-> 提供されたCLIPPED情報が空白であり、URL CONTEXTも記事本文を直接参照するものではないため、具体的な記事内容を特定できません。 この報告は、情報不足の状態を示し、Google Newsのメタ情報に基づいて作成されています。
 
 # Google Newsからの記事情報が不足している状況に関する報告
+
+> [!summary] TL;DR
+> 提供されたCLIPPED情報が空白であり、URL CONTEXTも記事本文を直接参照するものではないため、具体的な記事内容を特定できません。 この報告は、情報不足の状態を示し、Google Newsのメタ情報に基づいて作成されています。
 
 > [!abstract] TL;DR
 > - >-

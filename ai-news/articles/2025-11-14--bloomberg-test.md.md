@@ -7,7 +7,9 @@ tldr: これはテスト用の要約です。
 title: テスト記事
 url: https://www.bloomberg.co.jp/test
 kind: summary
+cssclass: ai-news-article
 ---
+
 # テスト記事
 
 > [!abstract] TL;DR
